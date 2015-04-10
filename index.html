@@ -91,37 +91,86 @@
         </section>
 
         <section class="context">
-
-            <section id="abs">
-
+            <section id=abs>
                 <h1>abs</h1>
-
-                <summary>
-                    <h2>Summary</h2>
-                    <p>Returns the absolute value</p>
-                </summary>
-                <section>
-                    <h2>Syntax</h2>
-                    <p>float abs(float)</p>
-                    <p>vec2 abs(vec2)</p>
-                    <p>vec3 abs(vec3)</p>
-                    <p>vec4 abs(vec4)</p>
-                </section>
-                <section>
-                    <h2>Example</h2>
-                    <code>hello</code>
-                </section>
-                <section>
-                    <h2>See also</h2>
-                    <p></p>
-                </section>
-
-
+                <h1>Summary</h1>
+                <p>Returns the absolute value</p>
+                <h1>Syntax</h1>
+                <p>float abs(float)</p>
+                <p>vec2 abs(vec2)</p>
+                <p>vec3 abs(vec3)</p>
+                <p>vec4 abs(vec4)</p>
+                <h1>Example</h1>
+                <pre><code></code></pre>
+                <h1>See Also</h1>
+                <p></p>
+                <h1>Links</h1>
+                <p></p>
             </section>
-            <section id="acos">acos</section>
-            <section id="all">all</section>
-            <section id="any">any</section>
-            <section id="asin">asin</section>
+            <section id=acos>
+                <h1>acos</h1>
+                <h1>Summary</h1>
+                <p>Returns the arccosine radian</p>
+                <h1>Syntax</h1>
+                <p>float acos(float)</p>
+                <p>vec2 acos(vec2)</p>
+                <p>vec3 acos(vec3)</p>
+                <p>vec4 acos(vec4)</p>
+                <h1>Example</h1>
+                <pre><code></code></pre>
+                <h1>See Also</h1>
+                <p></p>
+                <h1>Links</h1>
+                <p><a href="http://en.wikipedia.org/wiki/Inverse_trigonometric_functions#Principal_values">Wikipedia</a>
+                </p>
+            </section>
+            <section id=all>
+                <h1>all</h1>
+                <h1>Summary</h1>
+                <p>Returns true if all values of vec are true</p>
+                <h1>Syntax</h1>
+                <p>bool all(bvec2)</p>
+                <p>bool all(bvec3)</p>
+                <p>bool all(bvec4</p>
+                <h1>Example</h1>
+                <pre><code></code></pre>
+                <h1>See Also</h1>
+                <p></p>
+                <h1>Links</h1>
+                <p></p>
+            </section>
+            <section id=any>
+                <h1>any</h1>
+                <h1>Summary</h1>
+                <p>Returns true if any values of vec are true (at least one true)</p>
+                <h1>Syntax</h1>
+                <p>bool any(bvec2)</p>
+                <p>bool any(bvec3)</p>
+                <p>bool any(bvec4)</p>
+                <h1>Example</h1>
+                <pre><code></code></pre>
+                <h1>See Also</h1>
+                <p></p>
+                <h1>Links</h1>
+                <p></p>
+            </section>
+            <section id=asin>
+                <h1>asin</h1>
+                <h1>Summary</h1>
+                <p>Returns the arcsine radian</p>
+                <h1>Syntax</h1>
+                <p>float asin(float)</p>
+                <p>vec2 asin(vec2)</p>
+                <p>vec3 asin(vec3)</p>
+                <p>vec4 asin(vec4)</p>
+                <h1>Example</h1>
+                <pre><code></code></pre>
+                <h1>See Also</h1>
+                <p></p>
+                <h1>Links</h1>
+                <p></p>
+            </section>
+
             <section id="atan">atan</section>
             <section id="ceil">ceil</section>
             <section id="clamp">clamp</section>
@@ -184,9 +233,11 @@
 
 
 
-    <a href="#" class="top">Top</a>
+    <!-- <a href="#" class="top">Top</a>-->
 
-
+    <svg href="#" class="totop svg-container">
+        <polygon class="totop triangle" points="0,50  50,50  25,0" />
+    </svg>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
@@ -222,7 +273,7 @@
             $root.animate({
                 scrollTop: $(href).offset().top
             }, 500, function () {
-                console.log("waza");
+                window.location.hash = href;
 
             });
             return false;
@@ -231,13 +282,13 @@
 
         $(window).scroll(function () {
             if ($(this).scrollTop() > 500) {
-                $('.top').fadeIn();
+                $('.totop').fadeIn();
             } else {
-                $('.top').fadeOut();
+                $('.totop').fadeOut();
             }
         });
 
-        $('.top').click(function () {
+        $('.totop').click(function () {
             $root.animate({
                 scrollTop: 0
             }, 800);
