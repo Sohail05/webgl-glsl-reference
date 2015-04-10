@@ -119,12 +119,12 @@ header {} main {} P {} h1 {} section {} .container a {
     margin-left: 10px;
 }
 
-.context > section > h1 {
+.context > section > h2 {
     font-size: 18px;
     margin:0 0 0 10px;
 }
 
-.context > section > h1:first-child {
+.context > section > h2:first-child {
     font-size: 22px;
     text-decoration: underline;
     
