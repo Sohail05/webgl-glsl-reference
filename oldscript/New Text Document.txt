@@ -1,0 +1,91 @@
+T radians(T degrees) degrees to radians
+T degrees(T radians) radians to degrees
+T sin(T angle) sine
+T cos(T angle) cosine
+T tan(T angle) tangent
+T asin(T x) arc sine
+T acos(T x) arc cosine
+T atan(T y, T x)
+T atan(T y_over_x)
+arc tangent
+Exponential Functions [8.2]
+Component-wise operation. T is float, vec2, vec3, vec4.
+T pow(T x, T y) xy
+T exp(T x) ex
+T log(T x) ln
+T exp2(T x) 2x
+T log2(T x) log2
+T sqrt(T x) square root
+T inversesqrt(T x) inverse square root
+Common Functions [8.3]
+Component-wise operation. T is float, vec2, vec3, vec4.
+T abs(T x) absolute value
+T sign(T x) returns -1.0, 0.0, or 1.0
+T floor(T x) nearest integer <= x
+T ceil(T x) nearest integer >= x
+T fract(T x) x - floor(x)
+T mod(T x, T y)
+T mod(T x, float y) modulus
+T min(T x, T y)
+T min(T x, float y) minimum value
+T max(T x, T y)
+T max(T x, float y) maximum value
+T clamp(T x, T minVal, T maxVal)
+T clamp(T x, float minVal,
+float maxVal)
+min(max(x, minVal), maxVal)
+T mix(T x, T y, T a)
+T mix(T x, T y, float a) linear blend of x and y
+T step(T edge, T x)
+T step(float edge, T x) 0.0 if x < edge, else 1.0
+T smoothstep(T edge0, T edge1, T x)
+T smoothstep(float edge0,
+float edge1, T x)
+clip and smooth
+Geometric Functions [8.4]
+These functions operate on vectors as vectors, not
+component-wise. T is float, vec2, vec3, vec4.
+float length(T x) length of vector
+float distance(T p0, T p1) distance between points
+float dot(T x, T y) dot product
+vec3 cross(vec3 x, vec3 y) cross product
+T normalize(T x) normalize vector to length 1
+T faceforward(T N, T I, T Nref) returns N if dot(Nref, I) < 0, else -N
+T reflect(T I, T N) reflection direction I - 2 * dot(N,I) * N
+T refract(T I, T N, float eta) refraction vector
+Matrix Functions [8.5]
+Type mat is any matrix type.
+mat matrixCompMult(mat x, mat y) multiply x by y component-wise
+Vector Relational Functions [8.6]
+Compare x and y component-wise. Sizes of input and return vectors
+for a particular call must match. Type bvec is bvecn; vec is vecn; ivec
+is ivecn (where n is 2, 3, or 4). T is the union of vec and ivec.
+bvec lessThan(T x, T y) x < y
+bvec lessThanEqual(T x, T y) x <= y
+bvec greaterThan(T x, T y) x > y
+bvec greaterThanEqual(T x, T y) x >= y
+bvec equal(T x, T y)
+bvec equal(bvec x, bvec y)
+x == y
+bvec notEqual(T x, T y)
+bvec notEqual(bvec x, bvec y)
+x!= y
+bool any(bvec x) true if any component of x is true
+bool all(bvec x) true if all components of x are true
+bvec not(bvec x) logical complement of x
+Texture Lookup Functions [8.7]
+Available only in vertex shaders.
+vec4 texture2DLod(sampler2D sampler, vec2 coord, float lod)
+vec4 texture2DProjLod(sampler2D sampler, vec3 coord, float lod)
+vec4 texture2DProjLod(sampler2D sampler, vec4 coord, float lod)
+vec4 textureCubeLod(samplerCube sampler, vec3 coord, float lod)
+Available only in fragment shaders.
+vec4 texture2D(sampler2D sampler, vec2 coord, float bias)
+vec4 texture2DProj(sampler2D sampler, vec3 coord, float bias)
+vec4 texture2DProj(sampler2D sampler, vec4 coord, float bias)
+vec4 textureCube(samplerCube sampler, vec3 coord, float bias)
+Available in vertex and fragment shaders.
+vec4 texture2D(sampler2D sampler, vec2 coord)
+vec4 texture2DProj(sampler2D sampler, vec3 coord)
+vec4 texture2DProj(sampler2D sampler, vec4 coord)
+vec4 textureCube(samplerCube sampler, vec3 coord)

@@ -87,7 +87,15 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-header {} main {} P {} h1 {} section {} .container a {
+header {} main {} P {} h1 {} section {} 
+
+
+.container{
+
+    box-sizing: border-box;
+
+}
+.container a {
     box-sizing: border-box;
     width: 297px;
     background-color: rgba(120, 200, 120, 0.5);
@@ -112,44 +120,64 @@ header {} main {} P {} h1 {} section {} .container a {
     background-color: rgba(120, 200, 120, 1);
     color: white;
 }
+
+
+pre {
+    font:normal 14px Monaco,Monospace !important;
+    margin: 5px 0px 5px 20px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap !important;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+code {
+    display: block;
+    margin: 0;
+}
+
 /* Decription Box Style  */
 
-.context > section > * {
+.context > section > h2 {
     padding-right: 10px;
     margin-left: 10px;
 }
-
+.context a {
+    color: green;
+    text-decoration: none;
+    padding: 0px 5px;
+}
+.context p {
+    margin-left: 20px;
+    word-break: normal;
+    white-space: normal;
+}
 .context > section > h2 {
     font-size: 18px;
-    margin:0 0 0 10px;
+    margin: 0 0 0 10px;
 }
-
 .context > section > h2:first-child {
     font-size: 22px;
     text-decoration: underline;
-    
 }
-
 .context > section {
-    margin-top:5px;
+    margin-top: 5px;
     padding: 10px 0;
     box-sizing: border-box;
     background-color: rgba(120, 200, 120, 0.5);
     transition: 0.2s;
-    color:#555;
+    color: #555;
 }
 .context > section:target {
     background-color: rgba(120, 200, 120, 0.7);
-    color:#000;
+    color: #000;
 }
 .context {}
-
 /* Decription Box Style ens here */
 
-
-p{margin:0px;}
-
-
+p {
+    margin: 0px;
+}
 .center {
     text-align: center;
 }
@@ -175,8 +203,8 @@ p{margin:0px;}
    media queries
    ========================================================================== */
 
-
 /* mobile */
+
 @media only screen and (max-device-width: 600px) {
     #wrap {
         width: 300px;
@@ -186,14 +214,12 @@ p{margin:0px;}
         width: 300px;
         min-height: 300px;
     }
-    
     .container a {
         width: 100%;
     }
-    
 }
-
 /* small */
+
 @media only screen and (max-width: 600px) {
     #wrap {
         width: 300px;
@@ -206,8 +232,8 @@ p{margin:0px;}
         width: 100%;
     }
 }
-
 /* Mid */
+
 @media only screen and (min-width: 600px) {
     #wrap {
         width: 600px;
@@ -216,12 +242,12 @@ p{margin:0px;}
     .context > section {
         width: 600px;
     }
-    
     .container a {
         width: 49%;
     }
 }
 /* Large */
+
 @media only screen and (min-width: 900px) {
     #wrap {
         width: 900px;
