@@ -7,13 +7,19 @@
     <title>WebGL GLSL Reference</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <meta property="og:title" content="WebGL GLSL Reference" />
+    <meta property="og:site_name" content="Polygone.xyz"/>
+    <meta property="og:description" content="WebGL 1.0 GLSL online reference"/>
+    <meta property="og:image" content="http://polygone.xyz/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/prism.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/prism.js"></script>
 </head>
 
 <body>
@@ -29,7 +35,8 @@
 
             <h1>WebGL GLSL Reference</h1>
             <p>Based on OpenGL ES Shading Language 1.0</p>
-
+            <p>By <a href="http://twitter.com/S0hail05">Sohail Ajmal</a>
+            </p>
         </header>
 
         <section class="container">
@@ -88,15 +95,27 @@
         </section>
 
         <section class="context">
-			{$commad_list_info}
+            {$commad_list_info}
         </section>
     </main>
-
-    <!-- <a href="#" class="top">Top</a>-->
 
     <svg class="totop svg-container">
         <polygon class="totop triangle" points="0,50  50,50  25,0" />
     </svg>
+
+    <footer>
+        <h2>Copyright</h2>
+        <p>Copyright<span class="trademark" />&copy; 2011-2014 Khronos Group. This material may be distributed subject to the terms and conditions set forth in the Open Publication License, v 1.0, 8 June 1999.
+            <a class="link" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p>
+        <hr>
+        <p>
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                <img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+            </a>
+            <br />Examples are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+        </p>
+    </footer>
 
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
     <script>
@@ -105,8 +124,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
+   <!-- <script>
         (function (b, o, i, l, e, r) {
             b.GoogleAnalyticsObject = l;
             b[l] || (b[l] =
@@ -119,14 +137,14 @@
             e.src = 'https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e, r)
         }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('create', 'UA-61546050-2', 'auto');
         ga('send', 'pageview');
-    </script>
+    </script>-->
 
 
     <script>
         var $root = $('body');
-		//.container >
+         //.container >
         $('a').click(function () {
             var href = $.attr(this, 'href');
             $root.animate({
@@ -137,7 +155,6 @@
             });
             return false;
         });
-
 
         $(window).scroll(function () {
             if ($(this).scrollTop() > 500) {
@@ -153,7 +170,6 @@
             }, 800);
             return false;
         });
-
     </script>
 
 </body>

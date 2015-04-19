@@ -87,6 +87,35 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+
+/* header */
+
+header a {
+
+    color:green;
+    text-decoration: none;
+
+}
+
+
+
+/* footer */
+
+footer a {
+    color:green;
+    text-decoration: none;
+
+}
+
+footer{
+    margin-top: 20px;
+    background-color: rgba(120, 200, 120, 0.5);
+    padding: 20px;
+    
+}
+
+
 header {} main {} P {} h1 {} section {} 
 
 
@@ -123,7 +152,8 @@ header {} main {} P {} h1 {} section {}
 
 
 pre {
-    font:normal 14px Monaco,Monospace !important;
+    width:80%;
+    /*font:normal 14px Monaco,Monospace !important;*/
     margin: 5px 0px 5px 20px;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap !important;
@@ -135,6 +165,11 @@ code {
     display: block;
     margin: 0;
 }
+
+code:child-nth(even) {
+    
+}
+
 
 /* Decription Box Style  */
 

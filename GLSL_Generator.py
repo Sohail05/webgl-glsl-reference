@@ -101,17 +101,23 @@ for command in sorted(commad_info.items()):
     html+="<h2>"+str(command[0])+"</h2>\n"
     html+="<h2>Summary</h2>\n"
     html+="<p>"+command[1]["summary"]+"</p>\n"
-    html+="<h2>Syntax</h2>\n<pre>"
+    html+='<h2>Syntax</h2>\n<pre class="language-c">'
 
     for i in command[1]["proto"]:
         html+="""<code>"""+i+"""</code>"""
-
-
-    html+="""</pre><h2>Example</h2>
-             <pre><code></code></pre>
-             <h2>See Also</h2>\n"""
+    
+    example_file = open("examples/"+str(command[0])+".txt", "r")
+    example = "";
+    example = example_file.read();
+    example_file.close()
+    
+    
+    html+='</pre><h2>Example</h2><pre class="language-c">'
+    for text in example.split("\n"):
+    
+        html+="<code>"+text+"</code>\n"
              
-    html+="<p>"
+    html+='</pre><h2>See Also</h2>\n<p>'
     for i in command[1]["seealso"]:             
         html+= "<a href=#"+i+">"+i+"</a>\n"
     
