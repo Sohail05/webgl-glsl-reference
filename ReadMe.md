@@ -1,14 +1,17 @@
-Todo
-_____
 
-Add Texture functions:
+# WebGL GLSL Quick Reference
 
-    texture2D
-    texture2DLod
-    texture2DProj
-    texture2DProjLod
-    textureCube
-    textureCubeLod
-    
-    
-Add Build-in Variables
+<a href="">See Here</a>
+
+### Todo
+
+- Add Texture functions:
+
+    - texture2D
+    - texture2DLod
+    - texture2DProj
+    - texture2DProjLod
+    - textureCube
+    - textureCubeLod
+
+- Add Build-in Variables

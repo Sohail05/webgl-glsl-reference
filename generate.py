@@ -3,13 +3,11 @@ import xml.etree.ElementTree as ET
 import collections
 
 command_list = []
-
-#commad_info = { "name":{"summary":"summary", "proto":["p1","p2"] , "seealso":["a","b"] } }
 commad_info = {}
 
 def get_command_list( path_file ):
-    
-    file = open( path_file, "r") 
+
+    file = open( path_file, "r")
     commands = []
     commands = file.read().split("\n")
     file.close()
@@ -18,18 +16,13 @@ def get_command_list( path_file ):
 def get_file( path_file ):
     xtree = ET.parse(path_file)
     root = xtree.getroot()
-
-    #name
-    #print  "Name: " +root.attrib["id"]
     commad_info[root.attrib["id"]] ={}
 
     #summary
     str = ""
     str =  root[1][1].text
     str = str.replace( u'\u2014', "")
-    #print "Summary: " +str[len(root.attrib["id"])+2:]
     commad_info[root.attrib["id"]]["summary"] = str[len(root.attrib["id"])+2:]
-
 
     #Get function prototype
     findall = xtree.findall('.//div[@class="funcsynopsis"]')
@@ -38,14 +31,14 @@ def get_file( path_file ):
     if count > 1:
         functionProto.append(findall[0])
         functionProto.append(findall[1])
-    else: 
+    else:
         functionProto.append(findall[0])
-    
+
     commad_info[root.attrib["id"]]["proto"] =[]
     for function in functionProto:
         #return value
         returntype = function.find('.//code[@class="funcdef"]')
-        
+
         if returntype.text == "genIType ":
             continue
 
@@ -56,23 +49,20 @@ def get_file( path_file ):
             if i >= 0 and i != len(params)-1 and 1 != len(params) :
                 paramstr+=", "
 
-        print paramstr
+        print(paramstr)
         paramstr = paramstr.replace("vec, vec, bvec, bvec, ivec, ivec, uvec, uvec","vec, vec" )
         paramstr = paramstr.replace("vec, vec, ivec, ivec, uvec, uvec","vec, vec" )
         paramstr = paramstr.replace("vec, vec, ivec, ivec, bvec, bvec, uvec, uvec","vec, vec" )
-        #print returntype.text + " "+ root.attrib["id"] +"( " + paramstr +" )"
         commad_info[root.attrib["id"]]["proto"].append(returntype.text +  root.attrib["id"] +"(" + paramstr +")")
 
     #seealso
     commad_info[root.attrib["id"]]["seealso"] = []
     seealso = xtree.find('.//div[@id="seealso"]')
     for child in seealso[1]:
-        print child.attrib["href"]
+        print (child.attrib["href"])
         commad_info[root.attrib["id"]]["seealso"].append(child.attrib["href"])
-    
 
-
-command_list = get_command_list("list.txt")
+command_list = get_command_list("data/list.txt")
 #print command_list
 
 for command in command_list:
@@ -80,23 +70,14 @@ for command in command_list:
     if(os.path.isfile(pathfile)):
         get_file(pathfile)
     else:
-        print pathfile +" not found"
+        print (pathfile +" not found")
 
 sorted_commad_info = collections.OrderedDict(sorted(commad_info.items()))
-#print sorted(commad_info.items())
-
-#pathfile = "el3"+"\\"+"min"+".xhtml"
-#get_file(pathfile)
-
-
 sections = open("sections.html", "w")
 
-
-#commad_info = { "name":{"summary":"summary", "proto":["p1","p2"] , "seealso":["a","b"] } }
 html = ""
 for command in sorted(commad_info.items()):
-    
-    
+
     html+="<section id="+str(command[0])+">\n"
     html+="<h2>"+str(command[0])+"</h2>\n"
     html+="<h2>Summary</h2>\n"
@@ -105,22 +86,22 @@ for command in sorted(commad_info.items()):
 
     for i in command[1]["proto"]:
         html+="""<code>"""+i+"""</code>"""
-    
+
     example_file = open("examples/"+str(command[0])+".txt", "r")
     example = "";
     example = example_file.read();
     example_file.close()
-    
-    
+
+
     html+='</pre><h2>Example</h2><pre class="language-c">'
     for text in example.split("\n"):
-    
+
         html+="<code>"+text+"</code>\n"
-             
+
     html+='</pre><h2>See Also</h2>\n<p>'
-    for i in command[1]["seealso"]:             
+    for i in command[1]["seealso"]:
         html+= "<a href=#"+i+">"+i+"</a>\n"
-    
+
     html+="</p>"
     html+="""<h2>Links</h2>
              <a></a>\n
